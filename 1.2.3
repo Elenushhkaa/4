@@ -1,0 +1,80 @@
+#include <iostream>
+
+using namespace std;
+
+void print_array(int MAS[], int n) {
+	for (int i = 0; i < n; i++) {
+		cout << MAS[i] << ' ';
+	}
+	delete MAS;
+}
+
+void ZADANIE1() {
+
+	setlocale(LC_ALL, "RUS");
+	cout << "ЗАДАЙТЕ МАССИВ" << endl;
+	int n, Elenushka;
+	cin >> n;
+
+	int* MAS = new int[n];
+
+	cin >> MAS[0] >> Elenushka;
+	for (int i = 1; i < n; i++) {
+		MAS[i] = MAS[i - 1] + Elenushka;
+	}
+	print_array(MAS, n);
+}
+
+void ZADANIE2() {
+	srand(time(NULL));
+	setlocale(LC_ALL, "RUS");
+	cout << "ЗАДАЙТЕ МАССИВ" << endl;
+	int n, Elenushka, x;
+	cin >> n;
+
+	int* MAS = new int[n];
+
+	for (int i = 0; i < n; ++i)
+		MAS[i] = i + 1;
+	for (int i = 0; i < n; ++i) {
+		Elenushka = MAS[i];
+		x = rand() % n;
+		MAS[i] = MAS[x];
+		MAS[x] = Elenushka;
+
+	}
+	print_array(MAS, n);
+}
+void ZADANIE3() {
+
+
+	srand(time(NULL));
+	setlocale(LC_ALL, "RUS");
+	cout << "ЗАДАЙТЕ МАССИВ" << endl;
+	int n, Elenushka, x;
+	cin >> n;
+
+	int* MAS = new int[n];
+	Elenushka = 0;
+
+	for (int i = 0; i < n; ++i) {
+		x = rand() % 1000 + 1000;
+		MAS[i] = x;
+		if (x / 10 % 2 == 0)
+			Elenushka++;
+	}
+	cout << Elenushka << ' ';
+	delete MAS;
+}
+
+int main()
+{
+	srand(time(NULL));
+	setlocale(LC_ALL, "RUS");
+	ZADANIE1();
+	ZADANIE2();
+	ZADANIE3();
+	
+
+
+}
